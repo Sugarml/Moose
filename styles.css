@@ -1,0 +1,772 @@
+:root {
+    --color-primary: #d8573a; /* 主色：橘紅/紅色 */
+    --color-secondary: #e54c4c; /* 輔助紅：登入按鈕 */
+    --color-dark: #000000; /* 主要深色背景 */
+    --color-light-dark: #111111; /* 課程卡片背景/次要深色 */
+    --color-white: #ffffff;
+    --color-grey: #cccccc;
+    --font-family: 'Arial', 'Microsoft JhengHei', sans-serif;
+    --max-width: 1200px;
+}
+
+/* Base and Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 1. Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px; 
+    position: fixed; /* 固定定位 */
+    top: 0;
+    width: 100%;
+    z-index: 100; /* 確保在最上層 */
+    color: var(--color-white);
+    background-color: var(--color-dark); 
+}
+
+/* LOGO 區塊樣式 */
+.logo {
+    display: flex; 
+    align-items: center; 
+    padding: 0; 
+}
+
+.logo-img {
+    /* 導覽列的 Logo 調整大小 */
+    height: 50px; /* *** 已再次調整：從 35px 調整為 50px *** */
+    width: auto;
+    margin-right: 0; 
+}
+
+.nav-links a {
+    margin-left: 25px;
+    font-size: 16px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.register-btn {
+    margin-left: 30px;
+    padding: 8px 20px;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+/* 2. Hero Section - 全圖片輪播樣式 (已調整：圖片保持比例不裁切) */
+.hero-section {
+    position: relative;
+    min-height: 80vh; 
+    
+    display: flex;
+    align-items: flex-start; 
+    justify-content: center;
+    overflow: hidden;
+    
+    padding-top: 65px; 
+    transition: background-color 0.5s ease; 
+    background-color: #141414; 
+}
+
+.hero-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent; 
+    opacity: 1;
+    z-index: 1;
+}
+
+.content-container {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    max-width: 100%; 
+    width: 100%;
+    height: auto; 
+    min-height: calc(80vh - 65px); 
+    padding: 0; 
+    margin: 0;
+}
+
+.slides-container {
+    width: 100%;
+    height: auto; 
+    position: relative;
+}
+
+.slide {
+    display: none; 
+    position: absolute;
+    width: 100%;
+    height: 100%; 
+    top: 0;
+    left: 0;
+    
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    align-items: flex-start; 
+    justify-content: center;
+}
+
+.slide.active-slide {
+    display: flex; 
+    opacity: 1;
+    position: relative; 
+}
+
+.hero-image-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start; 
+    justify-content: center;
+}
+
+.hero-slide-img {
+    width: 100%;
+    height: auto; 
+    object-fit: initial; 
+    object-position: center; 
+}
+
+
+.carousel-arrow {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 28px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.next-arrow {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev-arrow {
+    left: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+.carousel-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dot-navigation {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: var(--color-white);
+}
+
+
+/* 3. Transition Quote Section */
+.transition-quote-section {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    text-align: center;
+    padding: 120px 20px;
+}
+
+.quote-content p {
+    font-size: 24px;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 5px auto;
+    font-weight: 300;
+}
+
+/* 4. About Us Section */
+.about-us-section {
+    position: relative;
+    color: var(--color-white);
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(to bottom, #d8573a, #990022);
+    overflow: hidden;
+    clip-path: polygon(0 30px, 100% 30px, 100% calc(100% - 30px), 0 calc(100% - 30px));
+}
+
+.about-content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+    color: #333;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: black;
+    margin: 10px auto 0;
+}
+
+.about-text {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+.about-text.second-paragraph {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* 5. Course Card Showcase */
+.course-showcase-section {
+    position: relative;
+    background: var(--color-light-dark);
+    color: var(--color-white);
+    padding: 60px 0 100px 0;
+    overflow: hidden;
+}
+
+.red-wedge-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(180deg, var(--color-primary), #11111100);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.course-carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 0 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.course-cards-wrapper {
+    display: flex;
+    gap: 30px;
+}
+
+.course-card {
+    width: 380px;
+    background-color: var(--color-dark);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
+    transition: transform 0.3s;
+}
+
+.card-image-box {
+    position: relative;
+}
+
+.card-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.discount-tag {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 8px 15px;
+    background-color: var(--color-primary);
+    font-weight: bold;
+    border-radius: 0 8px 0 0;
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%);
+    display: inline-block;
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.price-original {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.price-current {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+.course-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.course-meta {
+    font-size: 14px;
+    color: var(--color-grey);
+    margin-bottom: 15px;
+}
+
+.course-stats span {
+    font-size: 14px;
+    color: var(--color-grey);
+    float: right;
+}
+
+.course-carousel-container .carousel-arrow {
+    width: 30px;
+    height: 30px;
+    border: solid var(--color-white);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    cursor: pointer;
+    opacity: 0.6;
+    background-color: transparent; 
+    position: static; 
+    transform: none;
+    padding: 0;
+}
+
+.course-carousel-container .left-arrow {
+    transform: rotate(135deg);
+}
+
+.course-carousel-container .right-arrow {
+    transform: rotate(-45deg);
+}
+
+/* 6. Featured Instructor/Course */
+.featured-course-section {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    padding: 100px 0;
+}
+
+.white-title.section-title {
+    color: var(--color-white);
+    margin-bottom: 60px;
+}
+.white-title.section-title::after {
+    background-color: var(--color-white);
+}
+
+.instructor-card {
+    display: flex;
+    max-width: var(--max-width);
+    margin: 60px auto;
+    padding: 0 40px;
+    align-items: center;
+    gap: 80px;
+}
+
+.instructor-image-container {
+    flex-shrink: 0;
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.instructor-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.instructor-content {
+    flex: 1;
+}
+
+.role {
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+.instructor-content h4 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--color-primary);
+    padding-left: 15px;
+}
+
+.bio {
+    font-size: 18px;
+    color: var(--color-grey);
+    margin-bottom: 30px;
+}
+
+.course-highlight {
+    padding: 20px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background-color: #0a0a0a;
+    margin-bottom: 30px;
+}
+
+.highlight-tag {
+    background-color: var(--color-primary);
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.highlight-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.original-price {
+    color: #999;
+    text-decoration: line-through;
+    margin-left: 10px;
+}
+
+.detail-button {
+    padding: 12px 30px;
+    background-color: transparent;
+    border: 2px solid var(--color-white);
+    color: var(--color-white);
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+/* 7. Footer */
+.site-footer {
+    width: 100%;
+    padding: 0;
+}
+
+.footer-main {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    padding: 80px 50px 60px;
+    text-align: left;
+    max-width: 500px; 
+    margin: 0 auto 0 0; 
+}
+
+.footer-logo {
+    display: flex; 
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* 頁腳的大 Logo 圖片樣式 */
+.footer-logo .logo-img.large-logo {
+    height: 40px; 
+    width: auto;
+    margin-right: 0; 
+}
+
+.link-group, .social-links {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px; 
+}
+
+.link-group li a {
+    display: block;
+    font-size: 18px;
+    padding: 5px 0;
+    opacity: 0.8;
+}
+
+.social-links li a {
+    display: block;
+    font-size: 16px;
+    padding: 8px 0;
+    color: var(--color-grey);
+    opacity: 0.7;
+}
+
+.footer-bottom {
+    background-color: #333333;
+    color: #cccccc;
+    padding: 20px 50px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.copyright-text {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.policy-links {
+    margin: 0;
+}
+
+.policy-links a {
+    color: #cccccc;
+    margin: 0 5px 0 0;
+}
+
+.made-with {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+/* ======================================= */
+/* 8. LINE 客服懸浮按鈕 (FAB) 樣式 */
+/* ======================================= */
+.line-fab {
+    position: fixed;
+    right: 20px; 
+    bottom: 80px; 
+    
+    width: 60px; 
+    height: 60px; 
+    background-color: #00b900; 
+    color: var(--color-white);
+    border-radius: 50%; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    z-index: 999; 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    
+    font-size: 28px; 
+    transition: all 0.3s;
+}
+
+.line-fab span {
+    display: none; 
+}
+
+.line-fab:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+    transform: scale(1.05);
+}
+
+/* ======================================= */
+/* 9. LINE QR Code 彈窗 (Modal) 樣式 */
+/* ======================================= */
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.7); 
+    backdrop-filter: blur(5px); 
+}
+
+.modal-content {
+    background-color: var(--color-white);
+    margin: 10% auto; 
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 450px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    text-align: center;
+    color: #333;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-content h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.qr-code-img {
+    width: 70%; 
+    max-width: 250px;
+    height: auto;
+    margin-bottom: 20px;
+    border: 1px solid #ccc; 
+}
+
+.modal-body p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.modal-body .instruction {
+    font-size: 12px;
+    color: #888;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--color-primary);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Media Queries (Responsive Design) */
+@media (max-width: 1250px) {
+    .navbar { padding: 10px 20px; } 
+    .nav-links { display: none; }
+    
+    /* 調整輪播內容在小螢幕的佈局 */
+    .hero-section { min-height: auto; padding-top: 65px; padding-bottom: 0; }
+    .content-container { height: auto; min-height: 50vh; } 
+    
+    .text-content { padding-right: 0; margin-bottom: 40px; align-items: center; }
+    .hero-section .carousel-arrow { 
+        display: none; 
+    }
+    
+    /* 課程卡片輪播調整 */
+    .course-carousel-container { 
+        justify-content: flex-start; 
+        overflow-x: auto; 
+        scroll-snap-type: x mandatory; 
+        -webkit-overflow-scrolling: touch; 
+        padding: 0 20px;
+    }
+    .course-card { width: 300px; scroll-snap-align: start; }
+
+    /* 導師卡片調整 */
+    .instructor-card { flex-direction: column; text-align: center; gap: 40px; padding: 0 20px; }
+    .instructor-card.right-image { flex-direction: column; }
+    .instructor-image-container { width: 100%; max-width: 400px; height: auto; }
+    .instructor-content h4 { padding-left: 0; border-left: none; border-bottom: 3px solid var(--color-primary); padding-bottom: 10px; }
+    
+    /* Footer 調整 */
+    .footer-main {
+        padding: 60px 20px;
+        margin: 0 auto;
+        text-align: center; 
+    }
+    .copyright-text {
+        align-items: center;
+        text-align: center;
+    }
+    .logo, .footer-logo {
+        justify-content: center; 
+    }
+}
+
+/* 針對寬螢幕調整 LINE FAB 樣式，使其顯示為長條標籤 */
+@media (min-width: 769px) {
+    .line-fab {
+        width: 40px; 
+        height: 120px;
+        right: 40px;
+        bottom: 40px; 
+        border-radius: 8px; 
+        font-size: 32px; 
+        
+        flex-direction: column; 
+        justify-content: space-evenly;
+        padding: 10px 0;
+    }
+    
+    .line-fab span {
+        display: block; 
+        writing-mode: vertical-rl; 
+        text-orientation: upright;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* 手機上調整 LINE FAB 位置，避免遮擋太底部 */
+    .line-fab {
+        right: 15px;
+        bottom: 60px;
+    }
+}

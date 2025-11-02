@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moose 謀士 - 登入</title>
+    <link rel="icon" href="./img/favicon.png" type="image/png">
+    
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="login_styles.css"> 
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="login-page-body">
+    
+    <div class="login-page">
+        <h1 class="login-title">ShiFu 師父</h1>
+        <p class="login-subtitle">讓大師成為你的師父</p>
+        
+        <div class="login-card">
+            
+            <div class="card-header">
+                <h3>登入</h3>
+                <a href="#" class="register-link">沒有帳號？**立即註冊**</a>
+            </div>
+            
+            <div class="social-logins">
+                <button class="social-btn google-btn">
+                    <i class="fab fa-google"></i> 使用 Google 帳號
+                </button>
+                <button class="social-btn facebook-btn">
+                    <i class="fab fa-facebook-f"></i> 使用 Facebook 帳號
+                </button>
+                <button class="social-btn line-btn">
+                    <i class="fab fa-line"></i> 使用 LINE 帳號
+                </button>
+            </div>
+            
+            <div class="divider">或</div>
+            
+            <form class="email-login-form">
+                <label for="email">電子信箱</label>
+                <input type="email" id="email" name="email" placeholder="your.email@email.com">
+
+                <label for="password">密碼 *</label>
+                <div class="password-wrapper">
+                    <input type="password" id="password" name="password" placeholder="********">
+                    <i class="fas fa-eye password-toggle"></i>
+                </div>
+
+                <div class="remember-me">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">記住我</label>
+                </div>
+
+                <button type="submit" class="submit-btn">登入</button>
+            </form>
+
+            <div class="card-footer">
+                <a href="#">忘記密碼？</a>
+                <a href="#">沒收到 Email 驗證信件？</a>
+            </div>
+
+        </div>
+    </div>
+    
+    </body>
+</html>

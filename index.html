@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moose 謀士 - 華人頂尖知識課程</title>
+    
+    <link rel="icon" href="./img/favicon.png" type="image/png">
+    
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="./img/logo.png" alt="Moose 謀士 Logo" class="logo-img">
+        </div>
+        <nav class="nav-links">
+            <a href="#">所有課程</a>
+            <a href="#">文章</a>
+            <a href="#">常見問答</a>
+            <a href="#">我的課程</a>
+            <a href="login.html" class="register-btn">登入</a>
+        </nav>
+    </header>
+
+    <main class="hero-section">
+        <div class="hero-background"></div>
+        <div class="content-container">
+            
+            <div class="slides-container">
+                
+                <div class="slide active-slide" data-bg-color="#1a1a1a">
+                    <div class="hero-image-wrapper">
+                        <img src="./img/teacher.png" alt="新課程 Banner (Teacher)" class="hero-slide-img">
+                    </div>
+                </div>
+
+                <div class="slide" data-bg-color="#2d3941">
+                    <div class="hero-image-wrapper">
+                        <img src="./img/teacher1.png" alt="新課程 Banner (Teacher 1)" class="hero-slide-img">
+                    </div>
+                </div>
+                
+                <div class="slide" data-bg-color="#141414">
+                    <div class="hero-image-wrapper">
+                        <img src="./img/teacher2.png" alt="新課程 Banner (Teacher 2)" class="hero-slide-img">
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="carousel-arrow prev-arrow" onclick="changeSlide(-1)">&#10094;</div>
+            <div class="carousel-arrow next-arrow" onclick="changeSlide(1)">&#10095;</div>
+
+            <div class="dot-navigation" id="dot-navigation">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+            
+        </div>
+    </main>
+
+    <section class="transition-quote-section">
+        <div class="quote-content">
+            <p>謀士Moose。 頂尖軍師的裝備庫。</p>
+            <p>在這個時代，技術就是權力，算法即是謀略。</p>
+            <p>帶上 Moose，不是要你打獵，是要你當那個開地圖的。</p>
+        </div>
+    </section>
+
+    <section class="about-us-section">
+        <div class="about-content-wrapper">
+            <h3 class="section-title">謀士Ｍoose，職場野外生存學院</h3>
+            
+            <p class="about-text">
+                北美森林裡，麋鹿靠本能穩健前進。<br>
+                牠不靠速度、不靠鋒利爪牙，卻能在暴風雪與掠食者之間，穩穩踏出每一步。
+            </p>
+            
+            <p class="about-text second-paragraph">
+                這正是「謀士Ｍoose」的起點：把菁英的野外生存術，轉成職場 60 分鐘裝備。<br>
+                帶上謀士，Moose 帶路——<br>
+                避風險、穩跳躍，一堂課升一級。<br>
+                讓你在職場森林裡，<br>
+                成為那頭誰也惹不起的沉穩巨獸。
+            </p>
+        </div>
+    </section>
+
+    <section class="course-showcase-section">
+        <div class="red-wedge-top"></div>
+        <h3 class="section-title">口碑好評</h3>
+        <div class="course-carousel-container">
+            <div class="carousel-arrow left-arrow"></div>
+            <div class="course-cards-wrapper">
+                
+                <div class="course-card">
+                    <div class="card-image-box">
+                        <img src="path/to/course-1-image.jpg" alt="松柏仁波切 人生功課" class="card-image">
+                        <span class="discount-tag">優惠中</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="price-original">原價 NT$7888</span>
+                        <p class="price-current">NT$3780</p>
+                        <h4 class="course-name">堪布 松柏仁波切</h4>
+                        <p class="course-meta">人生功課</p>
+                        <div class="course-stats"><span>/ 191人</span></div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="card-image-box">
+                        <img src="path/to/course-2-image.jpg" alt="侯智薰 超級個體工作術" class="card-image">
+                        <span class="discount-tag">優惠中</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="price-original">原價 NT$10888</span>
+                        <p class="price-current">NT$5580</p>
+                        <h4 class="course-name">侯智薰 (雷蒙)</h4>
+                        <p class="course-meta">超級個體工作術</p>
+                        <div class="course-stats"><span>/ 6488人</span></div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="card-image-box">
+                        <img src="path/to/course-3-image.jpg" alt="Paddy 趙培均 手機攝影" class="card-image">
+                        <span class="discount-tag">優惠中</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="price-original"></span> 
+                        <p class="price-current">NT$7880</p>
+                        <h4 class="course-name">Paddy 趙培均</h4>
+                        <p class="course-meta">手機攝影課</p>
+                        <div class="course-stats"><span>/ 1081人</span></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="carousel-arrow right-arrow"></div>
+        </div>
+    </section>
+
+    <section class="featured-course-section">
+        <h3 class="section-title white-title">精選師父與課程</h3>
+
+        <div class="instructor-card left-image">
+            <div class="instructor-image-container">
+                <img src="path/to/instructor-raymond.jpg" alt="侯智薰 (雷蒙) 老師" class="instructor-image">
+            </div>
+            <div class="instructor-content">
+                <p class="role">數位生產力專家</p>
+                <h4>侯智薰 (雷蒙)</h4>
+                <p class="bio">知名時間管理與數位工作流講師，致力於將複雜的生產力系統化，幫助個體工作者實現個人價值與財富的指數級增長。</p>
+                <div class="course-highlight">
+                    <span class="highlight-tag">⭐️ 主打課程</span>
+                    <p class="highlight-course-name">《超級個體工作術》</p>
+                    <p class="highlight-price">NT$5580 <span class="original-price">原價 NT$10888</span></p>
+                </div>
+                <button class="detail-button">查看雷蒙師父所有課程 $\rightarrow$</button>
+            </div>
+        </div>
+
+        <div class="instructor-card right-image">
+            <div class="instructor-content">
+                <p class="role">現代心靈導師</p>
+                <h4>堪布 松柏仁波切</h4>
+                <p class="bio">台灣唯一具備「堪布」頭銜的心靈導師，將深奧的佛法智慧轉化為適用於現代生活的人生功課。</p>
+                <div class="course-highlight">
+                    <span class="highlight-tag">🌿 心靈課程</span>
+                    <p class="highlight-course-name">《人生生活禪》</p>
+                    <p class="highlight-price">NT$3780 <span class="original-price">原價 NT$7888</span></p>
+                </div>
+                <button class="detail-button">查看仁波切所有課程 $\rightarrow$</button>
+            </div>
+            <div class="instructor-image-container">
+                <img src="path/to/instructor-rinpoche.jpg" alt="堪布 松柏仁波切 老師" class="instructor-image">
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-main">
+            <div class="footer-logo">
+                <img src="./img/logo.png" alt="Moose 謀士 Logo" class="logo-img large-logo">
+            </div>
+            <ul class="link-group">
+                <li><a href="#">所有課程</a></li>
+                <li><a href="#">我的課程</a></li>
+                <li><a href="#">精選文章</a></li>
+                <li><a href="#">聯絡我們</a></li>
+            </ul>
+            <ul class="social-links">
+                <li><a href="#"><i class="fab fa-facebook-f"></i> FACEBOOK</a></li> 
+                <li><a href="#"><i class="fab fa-youtube"></i> YOUTUBE</a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i> INSTAGRAM</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright-text">
+                <p>Copyright © 2022 Moose 謀士股份有限公司 統一編號：90195218</p>
+                <div class="policy-links">
+                    <a href="#">隱私權政策</a> | <a href="#">網站條款</a>
+                </div>
+                <p class="made-with">Made with ❤️ by 雷馬教育科技股份有限公司 · <a href="#" class="touchciv-link">Touchciv</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <a href="#" class="line-fab" id="openLineModal">
+        <i class="fab fa-line"></i>
+        <span>客服諮詢</span>
+    </a>
+
+    <div id="lineModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-body">
+                <h3>LINE 官方帳號</h3>
+                <img src="./img/line_qr.jpg" alt="LINE 官方帳號 QR Code" class="qr-code-img">
+                <p>掃描行動條碼即可將官方帳號加入好友</p>
+                <p class="instruction">請先點選 LINE 應用程式搜尋這位朋友的顯示，再掃描此行動條碼。</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        /* ======================================= */
+        /* 1. LINE MODAL 邏輯 */
+        /* ======================================= */
+        var modal = document.getElementById("lineModal");
+        var btn = document.getElementById("openLineModal");
+        var span = document.getElementsByClassName("close-btn")[0];
+
+        btn.onclick = function(event) {
+          event.preventDefault();
+          modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+        
+        /* ======================================= */
+        /* 2. CAROUSEL 輪播邏輯 */
+        /* ======================================= */
+        
+        var slideIndex = 1;
+        var slides = document.getElementsByClassName("slide");
+        var dots = document.getElementsByClassName("dot");
+        var heroSection = document.querySelector(".hero-section");
+        
+        // 顯示初始 Slide
+        showSlides(slideIndex); 
+
+        // 輪播主邏輯：改變 slideIndex 並顯示新的 slide
+        function changeSlide(n) {
+          showSlides(slideIndex += n);
+        }
+
+        // 點擊圓點切換
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+          var i;
+          
+          // 循環邏輯：如果超過最後一個，回到第一個
+          if (n > slides.length) {slideIndex = 1}
+          // 如果小於第一個，跳到最後一個
+          if (n < 1) {slideIndex = slides.length}
+          
+          // 隱藏所有 slides 和移除所有 active 圓點
+          for (i = 0; i < slides.length; i++) {
+            slides[i].classList.remove('active-slide');
+            dots[i].classList.remove('active');
+          }
+          
+          // 顯示當前 slide 和設定 active 圓點
+          slides[slideIndex-1].classList.add('active-slide');
+          dots[slideIndex-1].classList.add('active');
+
+          // 根據當前 slide 的 data-bg-color 改變 hero-section 的背景顏色
+          var bgColor = slides[slideIndex-1].getAttribute('data-bg-color');
+          if (bgColor) {
+              heroSection.style.backgroundColor = bgColor;
+          }
+        }
+        
+    </script>
+</body>
+</html>
