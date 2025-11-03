@@ -1,0 +1,172 @@
+/* ======================================= */
+/* poke_styles.css - 常見問題頁面專用樣式 */
+/* 該檔案應與 styles.css 同時被 poke.html 引用 */
+/* ======================================= */
+
+/* 確保主內容區在導航列下方 */
+.main-content-wrapper {
+    display: flex;
+    padding-top: 70px; /* 留出導航列的空間 */
+    min-height: 80vh;
+}
+
+/* 側邊欄 Sidebar (使用 styles.css 中的變數) */
+.sidebar {
+    width: 250px; /* 固定寬度 */
+    background-color: var(--color-black); 
+    color: var(--color-text-light);
+    padding: 40px 20px 40px 50px; 
+    flex-shrink: 0; 
+    border-right: 1px solid #222;
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 50px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    padding: 10px 0;
+    font-size: 16px;
+    color: var(--color-text-dark);
+    transition: color 0.3s, padding-left 0.3s;
+}
+
+.sidebar-nav li a:hover {
+    color: var(--color-primary);
+    padding-left: 5px;
+}
+
+.sidebar-social {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar-social a {
+    color: var(--color-text-dark);
+    font-size: 15px;
+}
+
+.sidebar-social a i {
+    width: 20px;
+    text-align: center;
+    margin-right: 5px;
+    color: var(--color-text-grey);
+}
+.sidebar-social a:hover {
+    color: var(--color-primary);
+}
+
+/* FAQ 內容區 */
+.faq-container {
+    flex-grow: 1;
+    padding: 80px 100px;
+    max-width: 1000px; 
+    margin: 0 auto;
+    color: var(--color-text-light);
+}
+
+.faq-page-title {
+    font-size: 38px;
+    text-align: center;
+    margin-bottom: 15px;
+    color: var(--color-text-light);
+}
+
+.faq-intro {
+    text-align: center;
+    margin-bottom: 60px;
+    color: var(--color-text-dark);
+    font-size: 16px;
+}
+
+.faq-section h3 {
+    font-size: 24px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--color-primary); 
+    padding-bottom: 10px;
+    color: var(--color-primary);
+}
+
+/* 問答收合項目樣式 */
+.faq-item {
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--color-light-dark); 
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 20px;
+    text-align: left;
+    background-color: transparent;
+    color: var(--color-text-light);
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.accordion-header:hover {
+    background-color: #282828;
+}
+
+.accordion-header .fas {
+    font-size: 14px;
+    transition: transform 0.3s;
+}
+
+.accordion-content {
+    background-color: #1A1A1A; 
+    color: var(--color-text-dark);
+    padding: 0 20px;
+    max-height: 0; 
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.accordion-content p,
+.accordion-content ul,
+.accordion-content ol {
+    padding: 15px 0;
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.accordion-content ul,
+.accordion-content ol {
+    padding-left: 40px;
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+
+.accordion-content a {
+    color: var(--color-secondary); 
+    text-decoration: underline;
+}
+
+/* Media Query for Mobile (移除側邊欄，內容全寬) */
+@media (max-width: 992px) {
+    .sidebar {
+        display: none; 
+    }
+    .main-content-wrapper {
+        padding-top: 65px;
+    }
+    .faq-container {
+        padding: 40px 20px; 
+    }
+    .faq-page-title {
+        font-size: 32px;
+    }
+}

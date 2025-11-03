@@ -1,0 +1,154 @@
+/* ======================================= */
+/* all_class_styles.css 所有課程頁面樣式 */
+/* ======================================= */
+
+/* 確保整個頁面的主內容區塊有黑色背景，並設定適當的內邊距 */
+body {
+    background-color: #1A1A1A; /* 類似圖片中的深黑色背景 */
+    color: #f2f2f2;
+}
+
+.all-class-main-content {
+    padding: 100px 40px; /* 頂部留出給導航列，並增加整體內邊距 */
+    max-width: 1200px; /* 限制內容寬度 */
+    margin: 0 auto; /* 居中 */
+}
+
+.page-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+/* 課程網格容器 */
+.class-grid-container {
+    display: grid;
+    /* 三欄佈局，中間有間距 */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px; 
+    justify-content: center;
+}
+
+/* 課程卡片樣式 */
+.course-card-v2 {
+    background-color: #262626; /* 課程卡片深灰色背景 */
+    border-radius: 8px;
+    overflow: hidden; /* 確保圖片邊角被圓角裁切 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.course-card-v2:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+.card-image-box {
+    position: relative;
+}
+
+.card-image-v2 {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 課程卡片底部的進度條 (圖片下方紅線) */
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 6px;
+    background-color: #E70000; /* 紅色 */
+    border-radius: 0 0 0 8px;
+    opacity: 0.8;
+}
+
+/* 課程卡片資訊區 */
+.card-info-v2 {
+    padding: 15px 20px;
+}
+
+.course-title-v2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    height: 40px; /* 保持標題行高一致性 */
+}
+
+.instructor-line {
+    font-size: 14px;
+    color: #AAAAAA;
+    margin-bottom: 15px;
+}
+.instructor-line i {
+    margin-right: 5px;
+}
+
+.price-box {
+    display: flex;
+    flex-wrap: wrap; /* 價格如果太長可以換行 */
+    align-items: baseline;
+    margin-bottom: 15px;
+}
+
+.price-current-v2 {
+    font-size: 20px;
+    font-weight: 900;
+    color: #E70000; /* 紅色價格 */
+    margin-right: 10px;
+}
+
+.price-original-v2 {
+    font-size: 12px;
+    text-decoration: line-through;
+    color: #666;
+    margin-right: 10px;
+}
+
+.enrolled-count {
+    font-size: 12px;
+    color: #AAAAAA;
+}
+
+.detail-btn-v2 {
+    width: 100%;
+    padding: 10px;
+    background-color: #E70000; /* 紅色按鈕 */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.detail-btn-v2:hover {
+    background-color: #D40000;
+}
+
+/* 確保導航列中的「所有課程」保持 active 狀態 */
+.nav-links a.active {
+    font-weight: bold;
+    border-bottom: 2px solid #E70000; /* 突出顯示當前頁面 */
+}
+
+/* RWD 調整 */
+@media (max-width: 768px) {
+    .all-class-main-content {
+        padding: 80px 20px;
+    }
+    .class-grid-container {
+        /* 在較小的螢幕上改為一欄或兩欄 */
+        grid-template-columns: 1fr 1fr; 
+    }
+}
+@media (max-width: 600px) {
+    .class-grid-container {
+        /* 在手機上改為單欄 */
+        grid-template-columns: 1fr;
+    }
+}
