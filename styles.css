@@ -101,6 +101,22 @@ a {
     background-color: var(--color-primary); /* 懸停時使用主色 */
 }
 
+/* 🍔 漢堡選單按鈕 - 桌面版隱藏 🍔 */
+.hamburger {
+    display: none; /* 預設在桌面版隱藏 */
+    background: transparent;
+    border: none;
+    color: var(--color-text-light);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 101; /* 確保在導航列之上 */
+}
+.hamburger:hover {
+    color: var(--color-primary);
+}
+
+
 /* 2. Hero Section - 全圖片輪播樣式 */
 .hero-section {
     position: relative;
@@ -543,7 +559,7 @@ a {
 }
 
 /* ======================================= */
-/* 7. 新的 Footer 樣式 - CALL TO ACTION 區塊 (已調整為暗色系搭配) */
+/* 7. CALL TO ACTION 區塊 */
 /* ======================================= */
 .cta-section {
     background-color: var(--color-cta-background); /* 深灰背景 */
@@ -598,10 +614,7 @@ a {
 }
 
 /* ======================================= */
-/* 8. 新的 Footer 樣式 - 精簡版頁尾 (已調整為暗色系搭配) */
-/* ======================================= */
-/* ======================================= */
-/* 8. 新的 Footer 樣式 - 精簡版頁尾 (已調整為整合版) */
+/* 8. 精簡版頁尾 */
 /* ======================================= */
 .mini-footer {
     background-color: var(--color-mini-footer-bg); /* 更深的背景 */
@@ -694,7 +707,7 @@ a {
 }
 
 /* ======================================= */
-/* 9. LINE 客服懸浮按鈕 (FAB) 樣式 (保持不變，或可微調綠色) */
+/* 9. LINE 客服懸浮按鈕 (FAB) 樣式 */
 /* ======================================= */
 .line-fab {
     position: fixed;
@@ -703,7 +716,7 @@ a {
     
     width: 60px; 
     height: 60px; 
-    background-color: #00B000; /* 可以使用更深一點的綠色或保持原樣 */
+    background-color: #00B000; 
     color: var(--color-white);
     border-radius: 50%; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
@@ -729,7 +742,7 @@ a {
 }
 
 /* ======================================= */
-/* 10. LINE QR Code 彈窗 (Modal) 樣式 (保持不變) */
+/* 10. LINE QR Code 彈窗 (Modal) 樣式 */
 /* ======================================= */
 
 .modal {
@@ -809,8 +822,51 @@ a {
 /* Media Queries (Responsive Design) */
 @media (max-width: 1250px) {
     .navbar { padding: 10px 20px; } 
-    .nav-links { display: none; }
+
+    /* 🍔 手機版顯示漢堡按鈕 🍔 */
+    .hamburger {
+        display: block; 
+    }
+
+    /* 🍔 漢堡選單的絕對定位和滑入/滑出效果 🍔 */
+    .nav-links { 
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        max-width: 300px; 
+        height: 100vh; 
+        background-color: var(--color-light-dark);
+        flex-direction: column; 
+        padding: 80px 30px 20px; 
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+        
+        transform: translateX(100%); /* 預設在右側外隱藏 */
+        transition: transform 0.4s ease-out;
+        
+        display: flex; 
+        align-items: flex-start; 
+        
+        z-index: 90;
+    }
     
+    .nav-links.open {
+        transform: translateX(0); /* 滑入視窗 */
+    }
+
+    .nav-links a {
+        margin: 15px 0; 
+        font-size: 18px;
+        width: 100%;
+        padding: 5px 0;
+    }
+
+    .register-btn {
+        margin-top: 30px;
+        width: 100%;
+        text-align: center;
+    }
+
     /* 調整輪播內容在小螢幕的佈局 */
     .hero-section { min-height: auto; padding-top: 65px; padding-bottom: 0; }
     .content-container { height: auto; min-height: 50vh; } 

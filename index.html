@@ -13,11 +13,16 @@
 <body>
     <header class="navbar">
         <div class="logo">
-        <a href="index.html"> 
-            <img src="./img/logo.png" alt="Moose 謀士 Logo" class="logo-img">
-        </a>
+            <a href="index.html"> 
+                <img src="./img/logo.png" alt="Moose 謀士 Logo" class="logo-img">
+            </a>
         </div>
-        <nav class="nav-links">
+        
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <nav class="nav-links" id="nav-links-menu">
             <a href="all_class.html">所有課程</a>
             <a href="#">文章</a>
             <a href="#">常見問答</a>
@@ -74,19 +79,19 @@
 
     <section class="about-us-section">
         <div class="about-content-wrapper">
-            <h3 class="section-title">謀士Ｍoose，職場野外生存學院</h3>
+            <h3 class="section-title">謀士Moose。頂層軍師的裝備庫</h3>
             
             <p class="about-text">
-                北美森林裡，麋鹿靠本能穩健前進。<br>
-                牠不靠速度、不靠鋒利爪牙，卻能在暴風雪與掠食者之間，穩穩踏出每一步。
+                北美森林裡，巨獸 Moose 不靠速度或爪牙， 而是靠「沉穩的計算」，<br>
+                在暴風雪與掠食者之間，穩穩踏出每一步。
             </p>
             
             <p class="about-text second-paragraph">
-                這正是「謀士Ｍoose」的起點：把菁英的野外生存術，轉成職場 60 分鐘裝備。<br>
-                帶上謀士，Moose 帶路——<br>
-                避風險、穩跳躍，一堂課升一級。<br>
-                讓你在職場森林裡，<br>
-                成為那頭誰也惹不起的沉穩巨獸。
+                這就是「謀士Moose」的核心： 職場不是加入狼群搞內捲， 而是成為巨獸獨立佈局。<br>
+                狼群的底氣是「集體恐慌」；<br>
+                而巨獸的底氣，來自「致勝系統」。<br>
+                我們不賣「狼性焦慮」，只給「強者的致勝法則」。<br>
+                我們將頂層的實戰技巧， 轉化為你可以立刻使用的「即戰武器」。
             </p>
         </div>
     </section>
@@ -120,7 +125,7 @@
                     <div class="card-info">
                         <span class="price-original">原價 NT$10888</span>
                         <p class="price-current">NT$5580</p>
-                        <h4 class="course-name">侯智薰 (雷蒙)</h4>
+                        <h4 class="course-name">何俊德</h4>
                         <p class="course-meta">超級個體工作術</p>
                         <div class="course-stats"><span>/ 6488人</span></div>
                     </div>
@@ -134,7 +139,7 @@
                     <div class="card-info">
                         <span class="price-original"></span> 
                         <p class="price-current">NT$7880</p>
-                        <h4 class="course-name">Paddy 趙培均</h4>
+                        <h4 class="course-name">王昱人</h4>
                         <p class="course-meta">手機攝影課</p>
                         <div class="course-stats"><span>/ 1081人</span></div>
                     </div>
@@ -154,7 +159,7 @@
             </div>
             <div class="instructor-content">
                 <p class="role">數位生產力專家</p>
-                <h4>侯智薰 (雷蒙)</h4>
+                <h4>何俊德</h4>
                 <p class="bio">知名時間管理與數位工作流講師，致力於將複雜的生產力系統化，幫助個體工作者實現個人價值與財富的指數級增長。</p>
                 <div class="course-highlight">
                     <span class="highlight-tag">⭐️ 主打課程</span>
@@ -168,7 +173,7 @@
         <div class="instructor-card right-image">
             <div class="instructor-content">
                 <p class="role">現代心靈導師</p>
-                <h4>堪布 松柏仁波切</h4>
+                <h4>王昱人</h4>
                 <p class="bio">台灣唯一具備「堪布」頭銜的心靈導師，將深奧的佛法智慧轉化為適用於現代生活的人生功課。</p>
                 <div class="course-highlight">
                     <span class="highlight-tag">🌿 心靈課程</span>
@@ -184,36 +189,36 @@
 
     </section>
 
- <section class="cta-section">
-    <div class="cta-content">
-        <h1>JOIN US</h1>
-        <p class="cta-year">2026 年</p>
-        <p class="cta-slogan">準備好遇見自己的職涯貴人</p>
-        <a href="#" class="cta-button">申請加入</a>
-    </div>
-</section>
+    <section class="cta-section">
+        <div class="cta-content">
+            <h1>JOIN US</h1>
+            <p class="cta-year">2026 年</p>
+            <p class="cta-slogan">準備好遇見自己的職涯貴人</p>
+            <a href="#" class="cta-button">申請加入</a>
+        </div>
+    </section>
 
-<footer class="mini-footer">
-    <div class="footer-primary-info">
-        <p class="copyright-main">© 2024 by Leaders100. All rights reserved</p>
-        <div class="mini-social-links">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <footer class="mini-footer">
+        <div class="footer-primary-info">
+            <p class="copyright-main">© 2024 by Leaders100. All rights reserved</p>
+            <div class="mini-social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
         </div>
-    </div>
-    
-    <div class="footer-secondary-info">
-        <div class="left-info">
-            <p>Copyright © 2025 Moose 謀士股份有限公司 統一編號：11111111</p>
-            <p><a href="#">隱私權政策</a> | <a href="#">網站條款</a></p>
+        
+        <div class="footer-secondary-info">
+            <div class="left-info">
+                <p>Copyright © 2025 Moose 謀士股份有限公司 統一編號：11111111</p>
+                <p><a href="#">隱私權政策</a> | <a href="#">網站條款</a></p>
+            </div>
+            <div class="right-info">
+                <p>Made with <span style="color: #E05C5C;">❤️</span> by 謀士股份有限公司 · Willy Wang</p>
+            </div>
         </div>
-        <div class="right-info">
-            <p>Made with <span style="color: #E05C5C;">❤️</span> by 謀士股份有限公司 · Willy Wang</p>
-        </div>
-    </div>
-</footer>
+    </footer>
     
     <a href="#" class="line-fab" id="openLineModal">
         <i class="fab fa-line"></i>
@@ -232,76 +237,6 @@
         </div>
     </div>
     
-    <script>
-        /* ======================================= */
-        /* 1. LINE MODAL 邏輯 */
-        /* ======================================= */
-        var modal = document.getElementById("lineModal");
-        var btn = document.getElementById("openLineModal");
-        var span = document.getElementsByClassName("close-btn")[0];
-
-        btn.onclick = function(event) {
-          event.preventDefault();
-          modal.style.display = "block";
-        }
-
-        span.onclick = function() {
-          modal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-          if (event.target == modal) {
-            modal.style.display = "none";
-          }
-        }
-        
-        /* ======================================= */
-        /* 2. CAROUSEL 輪播邏輯 */
-        /* ======================================= */
-        
-        var slideIndex = 1;
-        var slides = document.getElementsByClassName("slide");
-        var dots = document.getElementsByClassName("dot");
-        var heroSection = document.querySelector(".hero-section");
-        
-        // 顯示初始 Slide
-        showSlides(slideIndex); 
-
-        // 輪播主邏輯：改變 slideIndex 並顯示新的 slide
-        function changeSlide(n) {
-          showSlides(slideIndex += n);
-        }
-
-        // 點擊圓點切換
-        function currentSlide(n) {
-          showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-          var i;
-          
-          // 循環邏輯：如果超過最後一個，回到第一個
-          if (n > slides.length) {slideIndex = 1}
-          // 如果小於第一個，跳到最後一個
-          if (n < 1) {slideIndex = slides.length}
-          
-          // 隱藏所有 slides 和移除所有 active 圓點
-          for (i = 0; i < slides.length; i++) {
-            slides[i].classList.remove('active-slide');
-            dots[i].classList.remove('active');
-          }
-          
-          // 顯示當前 slide 和設定 active 圓點
-          slides[slideIndex-1].classList.add('active-slide');
-          dots[slideIndex-1].classList.add('active');
-
-          // 根據當前 slide 的 data-bg-color 改變 hero-section 的背景顏色
-          var bgColor = slides[slideIndex-1].getAttribute('data-bg-color');
-          if (bgColor) {
-              heroSection.style.backgroundColor = bgColor;
-          }
-        }
-        
-    </script>
+    <script src="app.js" defer></script>
 </body>
 </html>
