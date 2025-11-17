@@ -31,7 +31,7 @@
     --color-mini-footer-text: #999999; /* 淺灰色文字 */
     --color-mini-footer-icon: #777777; /* 社群圖標顏色 */
     
-    /* LINE FAB 特殊顏色 (LINE 綠色通常不變) */
+    /* LINE FAB 特殊顏色 */
     --color-line-fab: #00B000;
 }
 
@@ -67,7 +67,7 @@ a {
     z-index: 100; 
     color: var(--color-text-light); 
     background-color: var(--color-dark); 
-    box-shadow: 0 2px 10px var(--color-shadow-dark); /* 🎯 替換硬編碼 🎯 */
+    box-shadow: 0 2px 10px var(--color-shadow-dark); 
 }
 
 /* LOGO 區塊樣式 */
@@ -280,7 +280,7 @@ a {
     color: var(--color-text-light);
     text-align: center;
     padding: 100px 20px;
-    /* 調整漸變色為暗色系 (不使用變數，因為這是特殊效果) */
+    /* 調整漸變色為暗色系 */
     background: linear-gradient(to bottom, #2C0707, #1A1A1A); 
     overflow: hidden;
     clip-path: polygon(0 30px, 100% 30px, 100% calc(100% - 30px), 0 calc(100% - 30px));
@@ -356,6 +356,7 @@ a {
 .course-cards-wrapper {
     display: flex;
     gap: 30px;
+    /* 確保在桌面版，wrapper 不會滾動，而是由 JS 控制移動 */
     overflow: hidden; 
     max-width: calc(380px * 3 + 30px * 2); 
 }
@@ -365,13 +366,13 @@ a {
     background-color: var(--color-light-dark); 
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 30px var(--color-shadow-dark); /* 🎯 替換硬編碼 🎯 */
+    box-shadow: 0 10px 30px var(--color-shadow-dark); 
     flex-shrink: 0;
     transition: transform 0.3s;
 }
 .course-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 40px var(--color-shadow-light); /* 🎯 替換硬編碼 🎯 */
+    box-shadow: 0 15px 40px var(--color-shadow-light); 
 }
 
 
@@ -492,7 +493,7 @@ a {
     height: 400px;
     overflow: hidden;
     border-radius: 12px;
-    box-shadow: 0 10px 40px var(--color-shadow-dark); /* 🎯 替換硬編碼 🎯 */
+    box-shadow: 0 10px 40px var(--color-shadow-dark);
 }
 
 .instructor-image {
@@ -527,9 +528,9 @@ a {
 
 .course-highlight {
     padding: 20px;
-    border: 1px solid var(--color-border-dark); /* 🎯 替換硬編碼 🎯 */
+    border: 1px solid var(--color-border-dark);
     border-radius: 8px;
-    background-color: #0a0a0a; /* 保持硬編碼，因為這是比 light-dark 更深的背景 */
+    background-color: #0a0a0a;
     margin-bottom: 30px;
     color: var(--color-text-light);
 }
@@ -675,7 +676,7 @@ a {
     justify-content: space-between; 
     align-items: flex-start;
     padding-top: 15px;
-    border-top: 1px solid var(--color-border-dark); /* 🎯 替換硬編碼 🎯 */
+    border-top: 1px solid var(--color-border-dark); 
     color: var(--color-text-dark); 
 }
 
@@ -712,7 +713,7 @@ a {
     
     width: 60px; 
     height: 60px; 
-    background-color: var(--color-line-fab); /* 🎯 替換硬編碼 🎯 */
+    background-color: var(--color-line-fab); 
     color: var(--color-white);
     border-radius: 50%; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
@@ -761,7 +762,7 @@ a {
     border-radius: 12px;
     width: 90%;
     max-width: 450px; 
-    box-shadow: 0 10px 30px var(--color-shadow-light); /* 🎯 替換硬編碼 🎯 */
+    box-shadow: 0 10px 30px var(--color-shadow-light); 
     position: relative;
     text-align: center;
     color: var(--color-text-light); 
@@ -780,7 +781,7 @@ a {
     max-width: 250px;
     height: auto;
     margin-bottom: 20px;
-    border: 1px solid #444; /* 保持硬編碼，這是非常特定的深色邊框 */
+    border: 1px solid #444; 
 }
 
 .modal-body p {
@@ -796,7 +797,7 @@ a {
 }
 
 .close-btn {
-    color: #bbb; /* 保持硬編碼，這是非常特定的淺灰色 */
+    color: #bbb;
     float: right;
     font-size: 30px;
     font-weight: bold;
@@ -838,7 +839,7 @@ a {
         background-color: var(--color-light-dark);
         flex-direction: column; 
         padding: 80px 30px 20px; 
-        box-shadow: -5px 0 20px var(--color-shadow-dark); /* 🎯 替換硬編碼 🎯 */
+        box-shadow: -5px 0 20px var(--color-shadow-dark); 
         
         transform: translateX(100%); 
         transition: transform 0.4s ease-out;
@@ -875,15 +876,14 @@ a {
         display: none; 
     }
     
-    /* CTA 內距 */
-    .cta-section {
-        padding: 80px 20px;
-    }
-
-    /* 課程卡片滾動優化 (Scroll Snap) */
+    /* 🎯 課程輪播修正：強制塊級佈局以啟用滾動 🎯 */
     .course-carousel-container { 
         padding: 0 0px; 
+        display: block; /* 關鍵修正：讓它在手機上不使用 flex 佈局 */
+        justify-content: initial; 
+        gap: initial; 
     }
+    
     .course-carousel-container .left-arrow, 
     .course-carousel-container .right-arrow {
         display: none; 
@@ -924,6 +924,9 @@ a {
     .instructor-content h4 { padding-left: 0; border-left: none; border-bottom: 3px solid var(--color-primary); padding-bottom: 10px; }
     
     /* CTA 區塊調整 */
+    .cta-section {
+        padding: 80px 20px;
+    }
     .cta-section h2 { 
         font-size: 50px;
     }
