@@ -1,11 +1,22 @@
+/* ======================================= */
+/* Login Page Styles (login_styles.css) */
+/* ======================================= */
+
+/* 確保使用的變數與主 styles.css 一致 */
+/* 需要確保在 styles.css 中有定義:
+    --color-dark, --color-white, --color-light-dark, --color-primary, --color-secondary
+    --color-text-dark, --color-text-grey
+*/
+
 .login-page-body {
-    background-color: var(--color-dark); /* 黑色背景 */
+    background-color: var(--color-dark); 
     color: var(--color-white);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 100px 20px 40px; /* 增加頂部和底部內邊距 */
+    /* 調整內邊距，讓內容在頂部和底部有空間 */
+    padding: 80px 20px 40px; 
 }
 
 .login-page {
@@ -14,33 +25,31 @@
     width: 100%;
 }
 
-/* *** 新增/修改 Logo 圖片尺寸 *** */
-.logo-img {
-    width: 500px; /* 設定你想要的圖片寬度，這裡範例為 200px */
-    height: auto; /* 保持圖片比例，防止變形 */
-    margin-bottom: 25px; /* 增加 logo 和副標題之間的間距 */
+/* *** Logo 圖片尺寸調整 *** */
+.login-page .logo-img { /* 🎯 範圍更精確 🎯 */
+    width: 200px; /* 登入頁面 Logo 適合尺寸 */
+    height: auto; 
+    margin-bottom: 25px; 
+    /* 覆蓋主樣式中的可能影響 */
+    object-fit: contain;
 }
 /* ***************************** */
 
 
-.login-title {
-    font-family: 'Arial Black', sans-serif; /* 假設使用更粗的字體 */
-    font-size: 48px;
-    font-weight: 900;
-    margin-bottom: 5px;
-}
+/* 移除未使用的 .login-title */
 
 .login-subtitle {
     font-size: 16px;
-    color: var(--color-grey);
+    color: var(--color-text-dark); /* 🎯 替換未定義的 --color-grey 🎯 */
     margin-bottom: 30px;
+    font-weight: 300;
 }
 
 .login-card {
-    background-color: var(--color-light-dark); /* 深灰色卡片背景 */
+    background-color: var(--color-light-dark); 
     padding: 30px 40px;
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6); /* 加強陰影效果 */
 }
 
 .card-header {
@@ -51,18 +60,23 @@
 }
 
 .card-header h3 {
-    font-size: 22px;
+    font-size: 24px; /* 略微加大標題 */
     font-weight: bold;
 }
 
 .register-link {
     font-size: 14px;
-    color: var(--color-primary); /* 註冊連結使用主色 */
-    font-weight: bold;
+    color: var(--color-text-dark); /* 連結文字本身為中灰色 */
+    transition: color 0.3s;
 }
+
 .register-link strong {
+    color: var(--color-primary); /* 註冊 'strong' 使用主色強調 */
     font-weight: 900;
     text-decoration: underline;
+}
+.register-link:hover {
+    color: var(--color-primary); /* 懸停時，整個連結變主色 */
 }
 
 
@@ -75,12 +89,13 @@
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s; /* 🎯 確保所有過渡效果 🎯 */
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--color-white);
-    background-color: #222;
+    background-color: var(--color-dark); /* 🎯 使用 Dark 變數 🎯 */
+    border-color: var(--color-text-grey); /* 🎯 使用 Grey 變數作為邊框 🎯 */
 }
 
 .social-logins button i {
@@ -89,18 +104,26 @@
 }
 
 .social-logins button:hover {
-    background-color: #333;
+    background-color: var(--color-light-dark); /* 懸停時使用淺一點的深色 */
+    border-color: var(--color-primary); /* 懸停時變主色 */
 }
 
-.google-btn { color: #f2f2f2; }
-.facebook-btn { color: #f2f2f2; }
-.line-btn { background-color: #00c300; border-color: #00c300;}
+/* 🎯 特殊按鈕顏色調整 🎯 */
+/* 讓 Google 和 Facebook 繼承通用樣式，只修改 LINE */
+.line-btn { 
+    background-color: #00B900; /* LINE 綠色 */
+    border-color: #00B900;
+}
+.line-btn:hover {
+    background-color: #00D300; 
+}
+
 
 /* 分隔線 */
 .divider {
     text-align: center;
     margin: 20px 0;
-    color: #666;
+    color: var(--color-text-dark); /* 🎯 替換硬編碼 🎯 */
     position: relative;
     font-size: 14px;
 }
@@ -110,7 +133,7 @@
     top: 50%;
     width: 40%;
     height: 1px;
-    background: #333;
+    background: var(--color-text-grey); /* 🎯 替換硬編碼 🎯 */
 }
 .divider::before { left: 0; }
 .divider::after { right: 0; }
@@ -122,21 +145,26 @@
     margin-top: 15px;
     margin-bottom: 5px;
     font-size: 14px;
-    color: var(--color-grey);
+    color: var(--color-text-dark); /* 🎯 替換未定義的 --color-grey 🎯 */
 }
 
 .email-login-form input[type="email"],
 .email-login-form input[type="password"] {
     width: 100%;
     padding: 12px;
-    background-color: #222;
-    border: 1px solid #333;
+    background-color: var(--color-dark); /* 🎯 替換硬編碼 🎯 */
+    border: 1px solid var(--color-border-dark); /* 使用主 CSS 中定義的邊框色 */
     border-radius: 4px;
     color: var(--color-white);
     font-size: 16px;
+    transition: border-color 0.3s;
+}
+.email-login-form input:focus {
+    border-color: var(--color-primary); /* 聚焦時邊框變主色 */
+    outline: none;
 }
 .email-login-form input::placeholder {
-    color: #555;
+    color: var(--color-text-grey); /* 🎯 替換硬編碼 🎯 */
 }
 
 .password-wrapper {
@@ -148,7 +176,7 @@
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    color: #666;
+    color: var(--color-text-grey); /* 🎯 替換硬編碼 🎯 */
 }
 
 .remember-me {
@@ -157,14 +185,39 @@
     margin: 15px 0 30px 0;
     font-size: 14px;
 }
-.remember-me input {
-    margin-right: 10px;
+/* 讓 checkbox 視覺上更符合主題 */
+.remember-me input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--color-text-dark);
+    border-radius: 3px;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
 }
+.remember-me input[type="checkbox"]:checked {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+.remember-me input[type="checkbox"]:checked::after {
+    content: '\f00c'; /* Font Awesome check icon */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 10px;
+    color: var(--color-white);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 
 .submit-btn {
     width: 100%;
     padding: 12px;
-    background-color: var(--color-secondary); /* 紅色登入按鈕 */
+    background-color: var(--color-secondary); 
     color: var(--color-white);
     border: none;
     border-radius: 4px;
@@ -175,7 +228,7 @@
 }
 
 .submit-btn:hover {
-    background-color: #d84343; 
+    background-color: var(--color-primary); /* 🎯 統一 hover 效果為 Primary 🎯 */
 }
 
 .card-footer {
@@ -186,16 +239,30 @@
 }
 .card-footer a {
     font-size: 14px;
-    color: var(--color-grey);
+    color: var(--color-text-dark); /* 🎯 替換未定義的 --color-grey 🎯 */
     transition: color 0.3s;
 }
 .card-footer a:hover {
     color: var(--color-primary);
 }
 
-/* RWD 調整 (若有需要可以將所有登入頁面 RWD 放在這裡) */
+/* RWD 調整 */
 @media (max-width: 500px) {
     .login-card {
         padding: 20px;
+    }
+    
+    .card-header {
+        flex-direction: column; /* 🎯 小螢幕垂直堆疊 🎯 */
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .card-header h3 {
+        font-size: 20px;
+    }
+    .register-link {
+        font-size: 13px;
     }
 }

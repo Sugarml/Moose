@@ -13,18 +13,26 @@
     
     --font-family: 'Arial', 'Microsoft JhengHei', sans-serif;
     --max-width: 1200px;
-
-    /* JOIN US 區塊顏色 (已調整為暗色系搭配) */
+    
+    /* 常用陰影、分隔線顏色變數 */
+    --color-shadow-dark: rgba(0, 0, 0, 0.5);
+    --color-shadow-light: rgba(0, 0, 0, 0.7);
+    --color-border-dark: #333333; /* 新增用於深色背景下的分隔線 */
+    
+    /* JOIN US 區塊顏色 */
     --color-cta-background: #282828; /* 深灰背景 */
     --color-cta-title: #E0E0E0; /* 亮灰標題 */
     --color-cta-text: #B0B0B0; /* 中灰文字 */
     --color-cta-button-border: var(--color-primary); /* 按鈕邊框使用主色 */
     --color-cta-button-text: var(--color-primary); /* 按鈕文字使用主色 */
 
-    /* 精簡頁尾的顏色 (已調整為暗色系搭配) */
+    /* 精簡頁尾的顏色 */
     --color-mini-footer-bg: #1A1A1A; /* 比 main dark 淺一點的背景 */
     --color-mini-footer-text: #999999; /* 淺灰色文字 */
     --color-mini-footer-icon: #777777; /* 社群圖標顏色 */
+    
+    /* LINE FAB 特殊顏色 (LINE 綠色通常不變) */
+    --color-line-fab: #00B000;
 }
 
 /* Base and Reset */
@@ -37,8 +45,8 @@
 body {
     font-family: var(--font-family);
     line-height: 1.6;
-    color: var(--color-text-light); /* 全局文字色設為亮色 */
-    background-color: var(--color-dark); /* 全局背景色設為深色 */
+    color: var(--color-text-light); 
+    background-color: var(--color-dark); 
     overflow-x: hidden;
 }
 
@@ -53,13 +61,13 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 10px 50px; 
-    position: fixed; /* 固定定位 */
+    position: fixed; 
     top: 0;
     width: 100%;
-    z-index: 100; /* 確保在最上層 */
-    color: var(--color-text-light); /* 導航列文字為亮色 */
+    z-index: 100; 
+    color: var(--color-text-light); 
     background-color: var(--color-dark); 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* 增加陰影使其更突出 */
+    box-shadow: 0 2px 10px var(--color-shadow-dark); /* 🎯 替換硬編碼 🎯 */
 }
 
 /* LOGO 區塊樣式 */
@@ -73,24 +81,25 @@ a {
     height: 50px; 
     width: auto;
     margin-right: 0; 
+    object-fit: contain; 
 }
 
 .nav-links a {
     margin-left: 25px;
     font-size: 16px;
-    opacity: 0.9; /* 略微降低透明度 */
+    opacity: 0.9; 
     transition: opacity 0.3s;
 }
 .nav-links a:hover {
     opacity: 1;
-    color: var(--color-primary); /* 懸停時使用主色 */
+    color: var(--color-primary); 
 }
 
 .register-btn {
     margin-left: 30px;
     padding: 8px 20px;
     background-color: var(--color-secondary);
-    color: var(--color-white); /* 登入按鈕文字保持純白 */
+    color: var(--color-white); 
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -98,19 +107,19 @@ a {
     transition: background-color 0.3s;
 }
 .register-btn:hover {
-    background-color: var(--color-primary); /* 懸停時使用主色 */
+    background-color: var(--color-primary); 
 }
 
 /* 🍔 漢堡選單按鈕 - 桌面版隱藏 🍔 */
 .hamburger {
-    display: none; /* 預設在桌面版隱藏 */
+    display: none; 
     background: transparent;
     border: none;
     color: var(--color-text-light);
     font-size: 24px;
     cursor: pointer;
     padding: 10px;
-    z-index: 101; /* 確保在導航列之上 */
+    z-index: 101; 
 }
 .hamburger:hover {
     color: var(--color-primary);
@@ -129,7 +138,7 @@ a {
     
     padding-top: 65px; 
     transition: background-color 0.5s ease; 
-    background-color: var(--color-dark); /* 輪播背景也用深色 */
+    background-color: var(--color-dark); 
 }
 
 .hero-background {
@@ -271,7 +280,7 @@ a {
     color: var(--color-text-light);
     text-align: center;
     padding: 100px 20px;
-    /* 調整漸變色為暗色系 */
+    /* 調整漸變色為暗色系 (不使用變數，因為這是特殊效果) */
     background: linear-gradient(to bottom, #2C0707, #1A1A1A); 
     overflow: hidden;
     clip-path: polygon(0 30px, 100% 30px, 100% calc(100% - 30px), 0 calc(100% - 30px));
@@ -288,7 +297,7 @@ a {
     margin-bottom: 40px;
     position: relative;
     display: inline-block;
-    color: var(--color-text-light); /* 標題文字色 */
+    color: var(--color-text-light); 
 }
 
 .section-title::after {
@@ -296,7 +305,7 @@ a {
     display: block;
     width: 60px;
     height: 3px;
-    background-color: var(--color-primary); /* 下劃線使用主色 */
+    background-color: var(--color-primary); 
     margin: 10px auto 0;
 }
 
@@ -305,7 +314,7 @@ a {
     line-height: 1.8;
     margin-bottom: 25px;
     font-weight: 300;
-    color: var(--color-text-dark); /* 內文用較暗的文字 */
+    color: var(--color-text-dark); 
 }
 
 .about-text.second-paragraph {
@@ -316,7 +325,7 @@ a {
 /* 5. Course Card Showcase */
 .course-showcase-section {
     position: relative;
-    background: var(--color-dark); /* 使用更深的背景 */
+    background: var(--color-dark); 
     color: var(--color-text-light);
     padding: 60px 0 100px 0;
     overflow: hidden;
@@ -328,7 +337,7 @@ a {
     left: 0;
     width: 100%;
     height: 100px;
-    background: linear-gradient(180deg, var(--color-primary), var(--color-dark)); /* 調整漸變色 */
+    background: linear-gradient(180deg, var(--color-primary), var(--color-dark)); 
     clip-path: polygon(0 0, 100% 0, 50% 100%);
     transform: translateY(-50%);
     z-index: 2;
@@ -347,20 +356,22 @@ a {
 .course-cards-wrapper {
     display: flex;
     gap: 30px;
+    overflow: hidden; 
+    max-width: calc(380px * 3 + 30px * 2); 
 }
 
 .course-card {
     width: 380px;
-    background-color: var(--color-light-dark); /* 卡片背景色 */
+    background-color: var(--color-light-dark); 
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px var(--color-shadow-dark); /* 🎯 替換硬編碼 🎯 */
     flex-shrink: 0;
     transition: transform 0.3s;
 }
 .course-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 15px 40px var(--color-shadow-light); /* 🎯 替換硬編碼 🎯 */
 }
 
 
@@ -384,7 +395,7 @@ a {
     border-radius: 0 8px 0 0;
     clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%);
     display: inline-block;
-    color: var(--color-white); /* 確保標籤文字是亮的 */
+    color: var(--color-white); 
 }
 
 .card-info {
@@ -393,7 +404,7 @@ a {
 
 .price-original {
     font-size: 14px;
-    color: var(--color-text-dark); /* 原始價格用較暗的文字 */
+    color: var(--color-text-dark); 
     text-decoration: line-through;
     margin-bottom: 5px;
     display: block;
@@ -402,7 +413,7 @@ a {
 .price-current {
     font-size: 28px;
     font-weight: bold;
-    color: var(--color-primary); /* 當前價格使用主色 */
+    color: var(--color-primary); 
     margin-bottom: 10px;
 }
 
@@ -410,12 +421,12 @@ a {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 5px;
-    color: var(--color-text-light); /* 課程名稱使用亮色 */
+    color: var(--color-text-light); 
 }
 
 .course-meta {
     font-size: 14px;
-    color: var(--color-text-dark); /* 元資訊使用較暗的文字 */
+    color: var(--color-text-dark); 
     margin-bottom: 15px;
 }
 
@@ -428,7 +439,7 @@ a {
 .course-carousel-container .carousel-arrow {
     width: 30px;
     height: 30px;
-    border: solid var(--color-text-light); /* 箭頭邊框使用亮色 */
+    border: solid var(--color-text-light); 
     border-width: 0 3px 3px 0;
     display: inline-block;
     cursor: pointer;
@@ -448,7 +459,7 @@ a {
 }
 .course-carousel-container .carousel-arrow:hover {
     opacity: 1;
-    border-color: var(--color-primary); /* 懸停時邊框變主色 */
+    border-color: var(--color-primary); 
 }
 
 /* 6. Featured Instructor/Course */
@@ -481,7 +492,7 @@ a {
     height: 400px;
     overflow: hidden;
     border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 40px var(--color-shadow-dark); /* 🎯 替換硬編碼 🎯 */
 }
 
 .instructor-image {
@@ -516,9 +527,9 @@ a {
 
 .course-highlight {
     padding: 20px;
-    border: 1px solid #333;
+    border: 1px solid var(--color-border-dark); /* 🎯 替換硬編碼 🎯 */
     border-radius: 8px;
-    background-color: #0a0a0a;
+    background-color: #0a0a0a; /* 保持硬編碼，因為這是比 light-dark 更深的背景 */
     margin-bottom: 30px;
     color: var(--color-text-light);
 }
@@ -546,8 +557,8 @@ a {
 .detail-button {
     padding: 12px 30px;
     background-color: transparent;
-    border: 2px solid var(--color-primary); /* 按鈕邊框使用主色 */
-    color: var(--color-primary); /* 按鈕文字使用主色 */
+    border: 2px solid var(--color-primary); 
+    color: var(--color-primary); 
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
@@ -562,7 +573,7 @@ a {
 /* 7. CALL TO ACTION 區塊 */
 /* ======================================= */
 .cta-section {
-    background-color: var(--color-cta-background); /* 深灰背景 */
+    background-color: var(--color-cta-background); 
     padding: 100px 20px;
     text-align: center;
     color: var(--color-cta-text); 
@@ -573,34 +584,34 @@ a {
     margin: 0 auto;
 }
 
-.cta-content h1 {
+.cta-content h2 {
     font-size: 70px; 
     font-weight: 900;
     margin-bottom: 20px;
     letter-spacing: 5px;
-    color: var(--color-cta-title); /* 亮灰標題 */
+    color: var(--color-cta-title); 
 }
 
 .cta-year {
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 10px;
-    color: var(--color-cta-title); /* 亮灰年份 */
+    color: var(--color-cta-title); 
 }
 
 .cta-slogan {
     font-size: 28px;
     margin-bottom: 40px;
     line-height: 1.5;
-    color: var(--color-cta-text); /* 中灰文字 */
+    color: var(--color-cta-text); 
 }
 
 .cta-button {
     display: inline-block;
     padding: 15px 40px;
-    background-color: transparent; /* 按鈕背景透明 */
-    color: var(--color-cta-button-text); /* 按鈕文字使用主色 */
-    border: 3px solid var(--color-cta-button-border); /* 邊框使用主色 */
+    background-color: transparent; 
+    color: var(--color-cta-button-text); 
+    border: 3px solid var(--color-cta-button-border); 
     border-radius: 8px;
     font-size: 20px;
     font-weight: bold;
@@ -609,23 +620,23 @@ a {
 }
 
 .cta-button:hover {
-    background-color: var(--color-cta-button-border); /* 懸停時背景變主色 */
-    color: var(--color-white); /* 懸停時文字變純白 */
+    background-color: var(--color-cta-button-border); 
+    color: var(--color-white); 
 }
 
 /* ======================================= */
 /* 8. 精簡版頁尾 */
 /* ======================================= */
 .mini-footer {
-    background-color: var(--color-mini-footer-bg); /* 更深的背景 */
-    color: var(--color-mini-footer-text); /* 淺灰色文字 */
-    padding: 30px 40px; /* 增加上下內距 */
+    background-color: var(--color-mini-footer-bg); 
+    color: var(--color-mini-footer-text); 
+    padding: 30px 40px; 
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: 14px;
-    gap: 15px; /* 區塊間隔 */
+    gap: 15px; 
 }
 
 /* 包含 Leaders100 資訊和社群圖標的區塊 (居中顯示) */
@@ -644,28 +655,28 @@ a {
 .mini-social-links {
     display: flex;
     gap: 20px;
-    font-size: 18px; /* 圖標略微縮小 */
+    font-size: 18px; 
 }
 
 .mini-social-links a {
-    color: var(--color-mini-footer-icon); /* 社群圖標顏色 */
+    color: var(--color-mini-footer-icon); 
     transition: color 0.3s;
 }
 
 .mini-social-links a:hover {
-    color: var(--color-primary); /* 懸停時使用主色 */
+    color: var(--color-primary); 
 }
 
 /* 包含 Moose 和政策資訊的區塊 (左右對齊) */
 .footer-secondary-info {
     width: 100%;
-    max-width: var(--max-width); /* 限制最大寬度 */
+    max-width: var(--max-width); 
     display: flex;
-    justify-content: space-between; /* 左右分散對齊 */
+    justify-content: space-between; 
     align-items: flex-start;
     padding-top: 15px;
-    border-top: 1px solid #333333; /* 加上分隔線 */
-    color: var(--color-text-dark); /* 內文使用更暗的文字 */
+    border-top: 1px solid var(--color-border-dark); /* 🎯 替換硬編碼 🎯 */
+    color: var(--color-text-dark); 
 }
 
 .footer-secondary-info p {
@@ -691,21 +702,6 @@ a {
 }
 
 
-/* Media Queries 響應式調整 */
-@media (max-width: 768px) {
-    .footer-secondary-info {
-        flex-direction: column; /* 小螢幕改為垂直堆疊 */
-        align-items: center;
-        gap: 10px;
-        text-align: center;
-    }
-    .footer-secondary-info .left-info,
-    .footer-secondary-info .right-info {
-        text-align: center;
-        align-items: center;
-    }
-}
-
 /* ======================================= */
 /* 9. LINE 客服懸浮按鈕 (FAB) 樣式 */
 /* ======================================= */
@@ -716,7 +712,7 @@ a {
     
     width: 60px; 
     height: 60px; 
-    background-color: #00B000; 
+    background-color: var(--color-line-fab); /* 🎯 替換硬編碼 🎯 */
     color: var(--color-white);
     border-radius: 50%; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
@@ -754,21 +750,21 @@ a {
     width: 100%; 
     height: 100%;
     overflow: auto; 
-    background-color: rgba(0, 0, 0, 0.8); /* 彈窗背景更深 */
-    backdrop-filter: blur(8px); /* 模糊效果更強 */
+    background-color: rgba(0, 0, 0, 0.8); 
+    backdrop-filter: blur(8px); 
 }
 
 .modal-content {
-    background-color: var(--color-light-dark); /* 彈窗內容背景色 */
+    background-color: var(--color-light-dark); 
     margin: 10% auto; 
     padding: 30px;
     border-radius: 12px;
     width: 90%;
     max-width: 450px; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 10px 30px var(--color-shadow-light); /* 🎯 替換硬編碼 🎯 */
     position: relative;
     text-align: center;
-    color: var(--color-text-light); /* 彈窗內容文字顏色 */
+    color: var(--color-text-light); 
     animation: fadeIn 0.3s ease-out;
 }
 
@@ -784,7 +780,7 @@ a {
     max-width: 250px;
     height: auto;
     margin-bottom: 20px;
-    border: 1px solid #444; /* 圖片邊框調整 */
+    border: 1px solid #444; /* 保持硬編碼，這是非常特定的深色邊框 */
 }
 
 .modal-body p {
@@ -800,7 +796,7 @@ a {
 }
 
 .close-btn {
-    color: #bbb;
+    color: #bbb; /* 保持硬編碼，這是非常特定的淺灰色 */
     float: right;
     font-size: 30px;
     font-weight: bold;
@@ -819,7 +815,10 @@ a {
 }
 
 
+/* ======================================= */
 /* Media Queries (Responsive Design) */
+/* ======================================= */
+
 @media (max-width: 1250px) {
     .navbar { padding: 10px 20px; } 
 
@@ -839,9 +838,9 @@ a {
         background-color: var(--color-light-dark);
         flex-direction: column; 
         padding: 80px 30px 20px; 
-        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+        box-shadow: -5px 0 20px var(--color-shadow-dark); /* 🎯 替換硬編碼 🎯 */
         
-        transform: translateX(100%); /* 預設在右側外隱藏 */
+        transform: translateX(100%); 
         transition: transform 0.4s ease-out;
         
         display: flex; 
@@ -851,7 +850,7 @@ a {
     }
     
     .nav-links.open {
-        transform: translateX(0); /* 滑入視窗 */
+        transform: translateX(0); 
     }
 
     .nav-links a {
@@ -876,15 +875,47 @@ a {
         display: none; 
     }
     
-    /* 課程卡片輪播調整 */
+    /* CTA 內距 */
+    .cta-section {
+        padding: 80px 20px;
+    }
+
+    /* 課程卡片滾動優化 (Scroll Snap) */
     .course-carousel-container { 
-        justify-content: flex-start; 
-        overflow-x: auto; 
+        padding: 0 0px; 
+    }
+    .course-carousel-container .left-arrow, 
+    .course-carousel-container .right-arrow {
+        display: none; 
+    }
+    
+    .course-cards-wrapper {
+        overflow-x: scroll; 
+        
+        -ms-overflow-style: none; 
+        scrollbar-width: none; 
+        
         scroll-snap-type: x mandatory; 
         -webkit-overflow-scrolling: touch; 
-        padding: 0 20px;
+        
+        padding: 0 20px; 
+        gap: 15px; 
+        
+        width: 100%; 
+        max-width: none; 
     }
-    .course-card { width: 300px; scroll-snap-align: start; }
+
+    /* 隱藏 Chrome/Safari 滾動條 */
+    .course-cards-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .course-card { 
+        width: 80%; 
+        max-width: 320px; 
+        scroll-snap-align: center; 
+        flex-shrink: 0;
+    }
 
     /* 導師卡片調整 */
     .instructor-card { flex-direction: column; text-align: center; gap: 40px; padding: 0 20px; }
@@ -892,8 +923,8 @@ a {
     .instructor-image-container { width: 100%; max-width: 400px; height: auto; }
     .instructor-content h4 { padding-left: 0; border-left: none; border-bottom: 3px solid var(--color-primary); padding-bottom: 10px; }
     
-    /* Footer 響應式調整 */
-    .cta-section h1 {
+    /* CTA 區塊調整 */
+    .cta-section h2 { 
         font-size: 50px;
     }
     .cta-year, .cta-slogan {
@@ -902,6 +933,25 @@ a {
     .cta-button {
         font-size: 18px;
         padding: 12px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-secondary-info {
+        flex-direction: column; 
+        align-items: center;
+        gap: 10px;
+        text-align: center;
+    }
+    .footer-secondary-info .left-info,
+    .footer-secondary-info .right-info {
+        text-align: center;
+        align-items: center;
+    }
+    /* 手機上調整 LINE FAB 位置，避免遮擋太底部 */
+    .line-fab {
+        right: 15px;
+        bottom: 60px;
     }
 }
 
@@ -930,10 +980,52 @@ a {
     }
 }
 
-@media (max-width: 768px) {
-    /* 手機上調整 LINE FAB 位置，避免遮擋太底部 */
-    .line-fab {
-        right: 15px;
-        bottom: 60px;
+/* 11. 極小螢幕 (Max-width: 480px) 細節調整 */
+@media (max-width: 480px) {
+    /* 導航列調整 */
+    .navbar {
+        padding: 10px 15px; 
+    }
+
+    /* 語錄區塊縮小字體 */
+    .transition-quote-section {
+        padding: 80px 15px;
+    }
+    .quote-content p {
+        font-size: 18px;
+    }
+
+    /* 關於我們區塊縮小字體 */
+    .section-title {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    .about-us-section {
+        padding: 80px 15px;
+    }
+    .about-text {
+        font-size: 16px;
+    }
+    .about-text.second-paragraph {
+        font-size: 18px;
+    }
+
+    /* CTA 區塊進一步縮小字體 */
+    .cta-content h2 {
+        font-size: 40px; 
+        margin-bottom: 10px;
+    }
+    .cta-year, .cta-slogan {
+        font-size: 18px; 
+    }
+    .cta-button {
+        font-size: 16px;
+        padding: 10px 25px;
+    }
+
+    /* 頁尾調整 */
+    .mini-footer {
+        padding: 20px 15px;
+        font-size: 12px;
     }
 }
