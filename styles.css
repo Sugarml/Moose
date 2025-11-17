@@ -129,7 +129,8 @@ a {
 /* 2. Hero Section - 全圖片輪播樣式 */
 .hero-section {
     position: relative;
-    min-height: 80vh; 
+    /* 🎯 修正 1：調整 Hero 區塊的最小高度 🎯 */
+    min-height: 60vh; /* 從 80vh 降低 */
     
     display: flex;
     align-items: flex-start; 
@@ -157,7 +158,8 @@ a {
     max-width: 100%; 
     width: 100%;
     height: auto; 
-    min-height: calc(80vh - 65px); 
+    /* 🎯 修正 1：與 Hero 區塊高度同步 🎯 */
+    min-height: calc(60vh - 65px); 
     padding: 0; 
     margin: 0;
 }
@@ -199,8 +201,9 @@ a {
 .hero-slide-img {
     width: 100%;
     height: auto; 
-    object-fit: initial; 
-    object-position: center; 
+    /* 🎯 修正 1：確保圖片完整顯示 🎯 */
+    object-fit: contain; 
+    object-position: center top; 
 }
 
 
@@ -869,6 +872,7 @@ a {
 
     /* 調整輪播內容在小螢幕的佈局 */
     .hero-section { min-height: auto; padding-top: 65px; padding-bottom: 0; }
+    /* 🎯 修正 1：同步調整內容容器的高度 🎯 */
     .content-container { height: auto; min-height: 50vh; } 
     
     .text-content { padding-right: 0; margin-bottom: 40px; align-items: center; }
@@ -876,10 +880,10 @@ a {
         display: none; 
     }
     
-    /* 🎯 課程輪播修正：強制塊級佈局以啟用滾動 🎯 */
+    /* 🎯 修正 2：強制塊級佈局以啟用滾動 🎯 */
     .course-carousel-container { 
         padding: 0 0px; 
-        display: block; /* 關鍵修正：讓它在手機上不使用 flex 佈局 */
+        display: block; 
         justify-content: initial; 
         gap: initial; 
     }
@@ -891,6 +895,9 @@ a {
     
     .course-cards-wrapper {
         overflow-x: scroll; 
+        
+        /* 🎯 修正 2：強制設定高度以確保內容溢出被偵測到 🎯 */
+        height: 500px; 
         
         -ms-overflow-style: none; 
         scrollbar-width: none; 
