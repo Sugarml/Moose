@@ -129,8 +129,8 @@ a {
 /* 2. Hero Section - 全圖片輪播樣式 */
 .hero-section {
     position: relative;
-    /* 🎯 修正 1：調整 Hero 區塊的最小高度 🎯 */
-    min-height: 60vh; /* 從 80vh 降低 */
+    /* 🎯 修正 1：移除 min-height，讓圖片寬高比決定高度 🎯 */
+    min-height: auto; 
     
     display: flex;
     align-items: flex-start; 
@@ -158,8 +158,8 @@ a {
     max-width: 100%; 
     width: 100%;
     height: auto; 
-    /* 🎯 修正 1：與 Hero 區塊高度同步 🎯 */
-    min-height: calc(60vh - 65px); 
+    /* 🎯 修正 2：移除 min-height 確保其完全適應圖片高度 🎯 */
+    min-height: auto; 
     padding: 0; 
     margin: 0;
 }
@@ -201,7 +201,7 @@ a {
 .hero-slide-img {
     width: 100%;
     height: auto; 
-    /* 🎯 修正 1：確保圖片完整顯示 🎯 */
+    /* 確保圖片完整顯示 */
     object-fit: contain; 
     object-position: center top; 
 }
@@ -870,17 +870,16 @@ a {
         text-align: center;
     }
 
-    /* 調整輪播內容在小螢幕的佈局 */
+    /* 🎯 Hero 輪播圖片修正 🎯 */
     .hero-section { min-height: auto; padding-top: 65px; padding-bottom: 0; }
-    /* 🎯 修正 1：同步調整內容容器的高度 🎯 */
-    .content-container { height: auto; min-height: 50vh; } 
+    .content-container { height: auto; min-height: auto; } /* 確保圖片寬高比決定高度 */
     
     .text-content { padding-right: 0; margin-bottom: 40px; align-items: center; }
     .hero-section .carousel-arrow { 
         display: none; 
     }
     
-    /* 🎯 修正 2：強制塊級佈局以啟用滾動 🎯 */
+    /* 🎯 課程輪播滑動修正 🎯 */
     .course-carousel-container { 
         padding: 0 0px; 
         display: block; 
@@ -896,11 +895,9 @@ a {
     .course-cards-wrapper {
         overflow-x: scroll; 
         
-        /* 🎯 修正 2：強制設定高度以確保內容溢出被偵測到 🎯 */
-        height: 500px; 
-        
-        -ms-overflow-style: none; 
-        scrollbar-width: none; 
+        /* 關鍵修正：讓卡片並排並強制超出寬度 */
+        display: flex; 
+        width: max-content; /* 強制寬度由子元素內容決定，確保溢出 */
         
         scroll-snap-type: x mandatory; 
         -webkit-overflow-scrolling: touch; 
@@ -908,8 +905,11 @@ a {
         padding: 0 20px; 
         gap: 15px; 
         
-        width: 100%; 
         max-width: none; 
+        height: 500px; /* 確保有足夠高度容納內容並偵測溢出 */
+
+        -ms-overflow-style: none; 
+        scrollbar-width: none; 
     }
 
     /* 隱藏 Chrome/Safari 滾動條 */
